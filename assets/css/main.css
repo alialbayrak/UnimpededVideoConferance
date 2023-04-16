@@ -1,5 +1,13 @@
 body {
-    background-color: black;
+    background-color: whitesmoke;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
 }
 
 #video2 {
