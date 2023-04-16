@@ -1,6 +1,6 @@
-
-function login(){
-    
+const loginIsSuccess = localStorage.getItem("login-is-success");
+if (!loginIsSuccess) {
+    window.location.href = "login.html"
 }
 
 function speechToText() {
