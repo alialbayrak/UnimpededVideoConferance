@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+
+#video2 {
+    position: absolute;
+    right: 15px;
+    top: 25%;
+}
+
+#div-video {
+    position: relative;
+}
