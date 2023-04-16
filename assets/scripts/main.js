@@ -45,11 +45,9 @@ $(async () => {
 
     let video_button = document.querySelector("#video-record");
     let video = document.querySelector("#video");
-    let video2 = document.querySelector("#video2");
 
     const videoRecorder = new MediaRecorder(stream);
     video.srcObject = stream;
-    video2.srcObject = stream;
 
     let videoChunks = [];
     videoRecorder.addEventListener("dataavailable", event => {
