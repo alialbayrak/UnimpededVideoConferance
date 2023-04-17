@@ -16,7 +16,7 @@ function speechToText() {
     const recognition = new SpeechRecognition();
     recognition.interimResults = true;
 
-    let p = document.createElement("p")
+    let p = document.createElement("span")
     const words = document.querySelector(".words")
     words.appendChild(p)
 
@@ -29,7 +29,7 @@ function speechToText() {
         p.textContent = transcript;
         if (e.results[0].isFinal) {
             words.innerHTML = "";
-            p = document.createElement('p');
+            p = document.createElement('span');
             words.appendChild(p)
         }
     })

@@ -1,5 +1,5 @@
 body {
-    background-color: whitesmoke;
+    background-color: #eee;
 }
 
 .divider:after,
@@ -18,4 +18,11 @@ background: #eee;
 
 #div-video {
     position: relative;
+}
+
+.words {
+    background: rgba(7, 5, 4, 0.384);
+    color: whitesmoke;
+    position: absolute; 
+    bottom: 5;
 }

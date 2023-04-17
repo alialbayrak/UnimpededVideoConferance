@@ -452,6 +452,6 @@
       "sizes": "1024x1024"
     }
   ],
-  "display": "standalone",
+  "display": "fullscreen",
   "start_url": "/"
 }     
