@@ -3,7 +3,7 @@ if (!loginIsSuccess) {
     window.location.href = "login.html"
 }
 
-function logout(){
+function logout() {
     localStorage.setItem("login-is-success", false);
     window.location.href = "login.html"
 }
@@ -27,6 +27,7 @@ function speechToText() {
             .join('')
 
         p.textContent = transcript;
+        //console.log(transcript);
         if (e.results[0].isFinal) {
             words.innerHTML = "";
             p = document.createElement('span');
@@ -34,7 +35,10 @@ function speechToText() {
         }
     })
 
-    recognition.addEventListener('end', recognition.start)
+    recognition.addEventListener('end', () => {
+        recognition.start();
+        //console.log("recognition tekrar başlatıldı.");
+    });
 
     recognition.start()
 
@@ -43,7 +47,7 @@ function speechToText() {
 
 $(async () => {
 
-    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
 
     //START VIDEO
 
