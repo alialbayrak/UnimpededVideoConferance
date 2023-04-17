@@ -3,11 +3,11 @@ if (!loginIsSuccess) {
     window.location.href = "login.html"
 }
 
-let deferrendPrompt;
-window.addEventListener('beforeinstallprompt', e =>{
-    e.preventDefault();
-    deferrendPrompt = e;
-})
+function logout(){
+    localStorage.setItem("login-is-success", false);
+    window.location.href = "login.html"
+}
+
 
 function speechToText() {
 

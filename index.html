@@ -15,24 +15,38 @@
 
 <body>
 
+    <!-- Image and text -->
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/pwa/windows11/LargeTile.scale-100.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            UVC
+        </a>
+        <button class="btn btn-danger btn-sm me-2" onclick="logout()">Çıkış Yap</div>
+        
+    </nav>
+
     <div class="container">
 
         <div class="row">
-            <div class="col-md-12" id="div-video" style="position:relative" class="rounded shadow">
+            <div class="col-md-12" id="div-video" class="rounded shadow">
                 <video id="video" width="100%" height="100%" autoplay></video>
-                <div class="words px-2 fw-bold"></div>
             </div>
-
         </div>
         <div class="row">
-            <div class="col-md-12">
-
-                <button class="btn btn-sm btn-success" id="video-record" style="display:none">Video Kaydet</button>
-
-                <button class="btn btn-sm btn-success" id="audio-record" style="display: none">Ses Kaydet</button>
+            <div class="col-12">
+                <span class="words fw-bold">
             </div>
-
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <button class="btn btn-sm btn-success" id="video-record" style="display:none">Video Kaydet</button>
+
+            <button class="btn btn-sm btn-success" id="audio-record" style="display: none">Ses Kaydet</button>
+        </div>
+
+    </div>
 
 
     </div>
