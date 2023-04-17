@@ -33,3 +33,9 @@ function login() {
     }
 
 }
+
+let deferrendPrompt;
+window.addEventListener('beforeinstallprompt', e =>{
+    e.preventDefault();
+    deferrendPrompt = e;
+})

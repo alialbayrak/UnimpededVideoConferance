@@ -3,6 +3,12 @@ if (!loginIsSuccess) {
     window.location.href = "login.html"
 }
 
+let deferrendPrompt;
+window.addEventListener('beforeinstallprompt', e =>{
+    e.preventDefault();
+    deferrendPrompt = e;
+})
+
 function speechToText() {
 
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
