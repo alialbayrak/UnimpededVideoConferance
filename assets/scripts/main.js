@@ -56,7 +56,6 @@ $(async () => {
     videoRecorder.addEventListener("stop", event => {
         const blob = new Blob(videoChunks);
         const videoUrl = URL.createObjectURL(blob);
-        console.log(videoUrl)
         videoChunks = [];
     });
 
