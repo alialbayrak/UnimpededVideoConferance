@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then((response) => {
+        console.log('ServiceWorker registration successful');
+    }, (err) => {
+        console.log('ServiceWorker registration failed');
+    });
+}
+
 $("#btn-girisyap").click(login)
 
 $("#username").keydown(function (e) {
@@ -13,7 +21,7 @@ $("#password").keydown(function (e) {
 });
 
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', async e =>{
+window.addEventListener('beforeinstallprompt', async e => {
     e.preventDefault();
     deferredPrompt = e;
 })
@@ -44,8 +52,7 @@ function login() {
         localStorage.setItem("login-is-success", true);
         window.location.href = "index.html";
     }
-    else
-    {
+    else {
         localStorage.setItem("login-is-success", false);
         $("#error").text("Kullanıcı adı veya şifre hatalı!")
     }
