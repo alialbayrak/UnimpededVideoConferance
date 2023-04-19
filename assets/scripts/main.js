@@ -9,9 +9,9 @@ function logout() {
 }
 
 function addNav(){
-    const nav = '<nav class="navbar navbar-light"><a class="navbar-brand" href="index.html">' +
+    const nav = '<nav class="navbar navbar-light"><a class="navbar-brand p-0" href="index.html">' +
     '<img src="assets/images/logo.PNG" width="30" height="30" class="ms-2 d-inline-block align-top" alt="">' +
-    '</a><button class="btn btn-danger btn-sm me-2" id="btn-logout">Çıkış Yap</div></nav>'
+    '</a><button class="btn btn-sm me-2 text-white" id="btn-logout">Çıkış</div></nav>'
 
     $('body').prepend(nav)
 }
