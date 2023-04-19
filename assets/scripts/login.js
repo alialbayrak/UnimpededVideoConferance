@@ -56,5 +56,4 @@ function login() {
         localStorage.setItem("login-is-success", false);
         $("#error").text("Kullanıcı adı veya şifre hatalı!")
     }
-
 }
