@@ -135,12 +135,16 @@ $(async () => {
 
         }
 
-        let source = $('<source>')
-        source.attr('src', 'assets/signs/' + loopList[0].file)
-        $(video).html(source);
+        if (loopList && loopList.length > 0) {
+            let source = $('<source>')
+            source.attr('src', 'assets/signs/' + loopList[0].file)
+            $(video).html(source);
 
-        video.load();
-        video.play();
+            video.load();
+            video.play();
+        }
+
+
     });
 
 })
