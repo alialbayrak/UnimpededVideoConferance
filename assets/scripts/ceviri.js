@@ -33,11 +33,10 @@ const list = [
 ]
 
 $(async () => {
-
-    let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    // let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     //START SES KAYDETME
-    const audioRecorder = new MediaRecorder(stream);
+    // const audioRecorder = new MediaRecorder(stream);
     const microphone = $("#microphone");
     const microphoneText = $("#text-microphone");
     const video = $('#video')[0]
