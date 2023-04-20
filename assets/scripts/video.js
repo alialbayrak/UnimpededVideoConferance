@@ -1,5 +1,5 @@
 import * as mainjs from '/assets/scripts/main.js'
-
+import * as html2canvasjs from '/assets/lib/html2canvas/html2canvas.js'
 
 $(async () => {
 
@@ -25,5 +25,14 @@ $(async () => {
     videoRecorder.start();
 
     //END VIDEO
+    $('button').click(() => {
+        const screenshotTarget = video;
+        html2canvas(screenshotTarget).then((canvas) => {
+            const base64image = canvas.toDataURL("image/png");
+            $('#ekrangoruntusu')[0].src = base64image;
+        });
+    })
+
+    
 
 })
