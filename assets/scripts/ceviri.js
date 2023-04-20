@@ -34,7 +34,7 @@ const list = [
 
 $(async () => {
 
-    // let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     //START SES KAYDETME
     // const audioRecorder = new MediaRecorder(stream);
