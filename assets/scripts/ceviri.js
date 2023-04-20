@@ -45,7 +45,7 @@ $(async () => {
             let htmlText = ''
             const wordList = allText.split(' ')
             wordList.forEach(word => {
-                if (word.toLocaleLowerCase() === loopList[0].text.toLocaleLowerCase()) {
+                if (word.toLocaleLowerCase('tr') === loopList[0].text.toLocaleLowerCase('tr')) {
                     htmlText += ` <b>${word}</b>`
                 }
                 else {
@@ -106,7 +106,7 @@ $(async () => {
             .map(result => result.transcript)
             .join('')
 
-        allText = transcript.toLocaleLowerCase();
+        allText = transcript.toLocaleLowerCase('tr');
     })
 
     recognition.addEventListener('start', () => {
@@ -128,7 +128,7 @@ $(async () => {
         loopList = [];
         for (const key in words) {
 
-            let word = list.find(m => m.text.toLocaleLowerCase() === words[key].toLocaleLowerCase())
+            let word = list.find(m => m.text.toLocaleLowerCase('tr') === words[key].toLocaleLowerCase('tr'))
             if (word) {
                 loopList.push(word)
             }
