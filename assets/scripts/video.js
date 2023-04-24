@@ -25,14 +25,33 @@ $(async () => {
     videoRecorder.start();
 
     //END VIDEO
-    $('button').click(() => {
+
+    setInterval(function (){
         const screenshotTarget = video;
         html2canvas(screenshotTarget).then((canvas) => {
             const base64image = canvas.toDataURL("image/png");
-            $('#ekrangoruntusu')[0].src = base64image;
-        });
-    })
+            const data = { image: base64image };
+            fetch('http://127.0.0.1:5000/sign/predict', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
 
-    
+                    $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
+                })
+                .catch(error => {
+                    $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
+                });
+        });
+    }, 2000)
+
+
+
+
+
 
 })
