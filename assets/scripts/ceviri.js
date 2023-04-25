@@ -86,6 +86,7 @@ $(async () => {
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     const recognition = new SpeechRecognition();
+    recognition.lang = 'tr-TR'
     recognition.interimResults = true;
 
     let allText = '';
@@ -126,13 +127,14 @@ $(async () => {
         let words = allText.split(' ');
 
         loopList = [];
-        for (const key in words) {
-
-            let word = list.find(m => m.text.toLocaleLowerCase('tr') === words[key].toLocaleLowerCase('tr'))
+        for (let key in words) {
+            let word = list.find(m => m.text.toLocaleLowerCase('tr').includes(words[key].toLocaleLowerCase('tr')))
             if (word) {
+                if (word.text === 'seni seviyorum') {
+                    
+                }
                 loopList.push(word)
             }
-
         }
 
         if (loopList && loopList.length > 0) {
