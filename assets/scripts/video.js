@@ -2,48 +2,32 @@ import * as mainjs from '/assets/scripts/main.js'
 import * as html2canvasjs from '/assets/lib/html2canvas/html2canvas.js'
 
 $(async () => {
-
-    const videoButton = $("#video-button");
-    let isRecord = true;
-    videoButton.click(() => {
-        if (isRecord) {
-            videoRecorder.pause();
-        }
-        else {
-            videoRecorder.resume();
-        }
-    })
-
     let stream = await navigator.mediaDevices.getUserMedia({ video: true });
 
     //START VIDEO
 
     let video = document.querySelector("#video");
-
-    const videoRecorder = new MediaRecorder(stream);
     video.srcObject = stream;
+    $('#text').html('İşaret algılanmaya çalışılıyor...')
 
-    let videoChunks = [];
-    videoRecorder.addEventListener("dataavailable", event => {
-        videoChunks.push(event.data);
-    });
-    videoRecorder.addEventListener("pause", event => {
-        // const blob = new Blob(videoChunks);
-        // const videoUrl = URL.createObjectURL(blob);
-        // videoChunks = [];
-        isRecord = false;
-        videoButton.removeClass('btn-danger');
-        videoButton.addClass('btn-success');
-        $('#text').html('Durduruldu...')
-    });
-    videoRecorder.addEventListener("resume", event => {
-        isRecord = true;
-        videoButton.addClass('btn-danger');
-        videoButton.removeClass('btn-success');
-        $('#text').html('El algılanmaya çalışılıyor...')
-    });
-
-    videoRecorder.start();
+    const videoButton = $("#video-button");
+    let isRecord = true;
+    videoButton.click(() => {
+        if (isRecord) {
+            isRecord = false;
+            video.srcObject = null;
+            videoButton.removeClass('btn-danger');
+            videoButton.addClass('btn-success');
+            $('#text').html('Durduruldu...')
+        }
+        else {
+            isRecord = true;
+            video.srcObject = stream;
+            videoButton.addClass('btn-danger');
+            videoButton.removeClass('btn-success');
+            $('#text').html('İşaret algılanmaya çalışılıyor...')
+        }
+    })
 
     //END VIDEO
 
@@ -64,11 +48,12 @@ $(async () => {
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
-                        $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
+                        if (isRecord) {
+                            $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
+                        }
                     })
                     .catch(error => {
                         console.error(data);
-                        $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
                     });
             });
         }
