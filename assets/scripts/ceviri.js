@@ -1,4 +1,4 @@
-import * as mainjs from '/assets/scripts/main.js'
+import * as mainjs from './main.js'
 
 const list = [
     {
