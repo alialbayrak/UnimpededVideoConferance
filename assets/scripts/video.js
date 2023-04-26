@@ -7,10 +7,10 @@ $(async () => {
     let isRecord = true;
     videoButton.click(() => {
         if (isRecord) {
-            videoRecorder.stop();
+            videoRecorder.pause();
         }
         else {
-            videoRecorder.start();
+            videoRecorder.resume();
         }
     })
 
@@ -27,7 +27,7 @@ $(async () => {
     videoRecorder.addEventListener("dataavailable", event => {
         videoChunks.push(event.data);
     });
-    videoRecorder.addEventListener("stop", event => {
+    videoRecorder.addEventListener("pause", event => {
         // const blob = new Blob(videoChunks);
         // const videoUrl = URL.createObjectURL(blob);
         // videoChunks = [];
@@ -35,9 +35,8 @@ $(async () => {
         videoButton.removeClass('btn-danger');
         videoButton.addClass('btn-success');
         $('#text').html('Durduruldu...')
-
     });
-    videoRecorder.addEventListener("start", event => {
+    videoRecorder.addEventListener("resume", event => {
         isRecord = true;
         videoButton.addClass('btn-danger');
         videoButton.removeClass('btn-success');
