@@ -31,7 +31,7 @@ $(async () => {
         html2canvas(screenshotTarget).then((canvas) => {
             const base64image = canvas.toDataURL("image/png");
             const data = { image: base64image };
-            fetch('http://engelliyasam.pythonanywhere.com/sign/predict', {
+            fetch('https://engelliyasam.pythonanywhere.com/sign/predict', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
