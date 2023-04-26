@@ -1,6 +1,5 @@
 import * as mainjs from '/assets/scripts/main.js'
 
-
 const list = [
     {
         text: 'nasılsın',
@@ -127,12 +126,10 @@ $(async () => {
         let words = allText.split(' ');
 
         loopList = [];
-        for (let key in words) {
-            let word = list.find(m => m.text.toLocaleLowerCase('tr').includes(words[key].toLocaleLowerCase('tr')))
+        for (let i = 0; i < words.length; i++) {
+            let word = list.find(m => m.text.toLocaleLowerCase('tr').includes(words[i].toLocaleLowerCase('tr')))
             if (word) {
-                if (word.text === 'seni seviyorum') {
-                    
-                }
+                if (word.text === 'seni seviyorum') { i++; }
                 loopList.push(word)
             }
         }
@@ -145,7 +142,6 @@ $(async () => {
             video.load();
             video.play();
         }
-
 
     });
 
