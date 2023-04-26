@@ -41,14 +41,15 @@ $(async () => {
             })
                 .then(response => response.json())
                 .then(data => {
-
+                    console.log(data);
                     $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
                 })
                 .catch(error => {
+                    console.error(data);
                     $('#text').html(data.Sign + ' %' + data.Ratio.toFixed(2))
                 });
         });
-    }, 2000)
+    }, 60000)
 
 
 
